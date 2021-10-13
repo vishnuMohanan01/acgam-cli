@@ -1,6 +1,6 @@
 import os
 
-from error_lib import *
+from ..error_lib import *
 
 
 class CertTemplateCheck:
