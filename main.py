@@ -6,6 +6,7 @@ import sys
 import pandas as pd
 
 from cert import Cert
+from utils.cert_template_check import CertTemplateCheck
 from utils.csv_checks import CSVCheck
 from utils.error_lib import *
 from mail import mail
@@ -13,8 +14,10 @@ from mail import notify
 
 
 if __name__ == '__main__':
-    execution_mode = os.environ["EXECUTION_MODE"]
+    EXECUTION_MODE = os.environ["EXECUTION_MODE"]
+    TEMPLATE_DIR = "fileSystem/certTemplates"
 
+    # TODO: parse with argparse
     template_type = sys.argv[1]
     recipient_type = sys.argv[2]
     event_name = sys.argv[3]
@@ -22,9 +25,8 @@ if __name__ == '__main__':
     event_start_date = sys.argv[9]
     is_winners = bool(int(sys.argv[10]))
 
-    # TODO: handle this with a custom exception
     recipients_df = None
-    if os.path.exists(os.path.join(csv_file_path)):
+    if os.path.isfile(os.path.join(csv_file_path)):
         recipients_df = pd.read_csv(csv_file_path)
     else:
         raise GeneralError(f"Given CSV File {csv_file_path} doesn't exist.")
@@ -38,10 +40,11 @@ if __name__ == '__main__':
     # csv file checks
     CSVCheck(df=recipients_df, is_winners=is_winners).begin()
 
-    # Checking if certificate template exists
-    template_path = '../../fileSystem/certificateTemplates/{} {}.png'.format(template_type, recipient_type) if (execution_mode == 'test') else 'fileSystem/certificateTemplates/{} {}.png'.format(template_type, recipient_type)
-    if not os.path.isfile(template_path):
-        throw_unimplemented_template(csv_file_path)
+    # cert template checks
+    CertTemplateCheck(template_dir=TEMPLATE_DIR).begin()
+
+    # other checks
+
 
     # Creating directory to store certificates
     dir_name = str(binascii.b2a_hex(os.urandom(4)), 'UTF-8')
