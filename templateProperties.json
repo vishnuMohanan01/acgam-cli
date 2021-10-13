@@ -1,0 +1,427 @@
+{
+  "SB Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    },
+    "Winners": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1400
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "position_coords": {
+        "x": 1240,
+        "y": 1650
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    },
+    "Volunteers": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1518
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    },
+    "Coordinators": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1518
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "CS Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    },
+    "Winners": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1400
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "position_coords": {
+        "x": 1240,
+        "y": 1650
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "IAS Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    },
+    "Winners": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1400
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "position_coords": {
+        "x": 1240,
+        "y": 1650
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "WIE Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    },
+    "Winners": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1400
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "position_coords": {
+        "x": 1240,
+        "y": 1650
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "Excelsior21SB Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "issuing_organization_coords": {
+        "x": 1240,
+        "y": 2150
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    },
+    "Winners": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1400
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "position_coords": {
+        "x": 1240,
+        "y": 1650
+      },
+      "issuing_organization_coords": {
+        "x": 1240,
+        "y": 2150
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "Excelsior21FROMSB Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "issuing_organization_coords": {
+        "x": 1240,
+        "y": 2150
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "Excelsior21FROMCS Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "issuing_organization_coords": {
+        "x": 1240,
+        "y": 2150
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "Excelsior21FROMIAS Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "issuing_organization_coords": {
+        "x": 1240,
+        "y": 2150
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "Excelsior21CS Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "issuing_organization_coords": {
+        "x": 1240,
+        "y": 2150
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  },
+  "Excelsior21IAS Template": {
+    "Participants": {
+      "name_coords": {
+        "x": 1240,
+        "y": 1500
+      },
+      "college_coords": {
+        "x": 1240
+      },
+      "event_coords": {
+        "x": 1240,
+        "y": 1900
+      },
+      "issuing_organization_coords": {
+        "x": 1240,
+        "y": 2150
+      },
+      "date_coords": {
+        "x": 1240,
+        "y": 2350
+      },
+      "qrcode_coords": {
+        "x": 265,
+        "y": 350
+      }
+    }
+  }
+}
