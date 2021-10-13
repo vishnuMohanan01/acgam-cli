@@ -8,6 +8,7 @@ import pandas as pd
 from cert import Cert
 from utils.checks.cert_template_check import CertTemplateCheck
 from utils.checks.csv_checks import CSVCheck
+from utils.checks.other_checks import OtherCheck
 from utils.error_lib import *
 from mail import mail
 from mail import notify
@@ -16,6 +17,7 @@ from mail import notify
 if __name__ == '__main__':
     EXECUTION_MODE = os.environ["EXECUTION_MODE"]
     TEMPLATE_DIR = "fileSystem/certTemplates"
+    GENERATED_CERTS_DIR = "fileSystem/generated_certs"
 
     # TODO: parse with argparse
     template_type = sys.argv[1]
@@ -44,7 +46,7 @@ if __name__ == '__main__':
     CertTemplateCheck(template_dir=TEMPLATE_DIR).begin()
 
     # other checks
-
+    OtherCheck(gen_certs_dir=GENERATED_CERTS_DIR)
 
     # Creating directory to store certificates
     dir_name = str(binascii.b2a_hex(os.urandom(4)), 'UTF-8')
