@@ -6,8 +6,8 @@ import sys
 import pandas as pd
 
 from cert import Cert
-from utils.cert_template_check import CertTemplateCheck
-from utils.csv_checks import CSVCheck
+from utils.checks.cert_template_check import CertTemplateCheck
+from utils.checks.csv_checks import CSVCheck
 from utils.error_lib import *
 from mail import mail
 from mail import notify
