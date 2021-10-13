@@ -15,9 +15,11 @@ from mail import notify
 
 
 if __name__ == '__main__':
+    # TODO: These should come from env vars
     EXECUTION_MODE = os.environ["EXECUTION_MODE"]
+    FONT_DIR = "fileSystem/fonts"
+    GENERATED_CERTS_DIR = "fileSystem/generatedCerts"
     TEMPLATE_DIR = "fileSystem/certTemplates"
-    GENERATED_CERTS_DIR = "fileSystem/generated_certs"
 
     # TODO: parse with argparse
     template_type = sys.argv[1]
