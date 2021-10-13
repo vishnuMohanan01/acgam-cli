@@ -10,6 +10,7 @@ from utils.checks.cert_template_check import CertTemplateCheck
 from utils.checks.csv_checks import CSVCheck
 from utils.checks.other_checks import OtherCheck
 from utils.error_lib import *
+from utils.make_dirs_and_files import make_gen_certs_dir
 from mail import mail
 from mail import notify
 
@@ -47,14 +48,11 @@ if __name__ == '__main__':
     # cert template checks
     CertTemplateCheck(template_dir=TEMPLATE_DIR).begin()
 
-    # other checks
-    OtherCheck(gen_certs_dir=GENERATED_CERTS_DIR)
+    # creating useful dirs and files
+    certs_store_dir = make_gen_certs_dir(gen_certs_dir=GENERATED_CERTS_DIR, event_name=event_name)
 
-    # Creating directory to store certificates
-    dir_name = str(binascii.b2a_hex(os.urandom(4)), 'UTF-8')
-    cert_gen_dir_path = "./generated_certificates/{}".format(dir_name) if (execution_mode == 'test') else "src/scripts/generated_certificates/{}".format(dir_name)
-    if not os.path.exists(cert_gen_dir_path):
-        os.mkdir(cert_gen_dir_path)
+    # other checks
+    OtherCheck(certs_store_dir=certs_store_dir).begin()
 
     # creating and sending certificates
     cert = Cert(template_type, recipient_type, event_name, event_start_date, is_winner, template_path)
