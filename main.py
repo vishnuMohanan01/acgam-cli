@@ -1,18 +1,17 @@
-import binascii
 import os
 import shutil
 import sys
 
 import pandas as pd
 
-from cert import Cert
+from utils.cert import Cert
 from utils.checks.cert_template_check import CertTemplateCheck
 from utils.checks.csv_checks import CSVCheck
 from utils.checks.other_checks import OtherCheck
 from utils.error_lib import *
+from utils.mail import mail
+from utils.mail import notify
 from utils.make_dirs_and_files import make_gen_certs_dir
-from mail import mail
-from mail import notify
 
 
 if __name__ == '__main__':
@@ -23,8 +22,8 @@ if __name__ == '__main__':
     TEMPLATE_DIR = "fileSystem/certTemplates"
 
     # TODO: parse with argparse
-    template_type = sys.argv[1]
-    recipient_type = sys.argv[2]
+    cert_template_name = sys.argv[1]
+    cert_for = sys.argv[2]
     event_name = sys.argv[3]
     csv_file_path = sys.argv[4]
     event_start_date = sys.argv[9]
@@ -55,7 +54,12 @@ if __name__ == '__main__':
     OtherCheck(certs_store_dir=certs_store_dir).begin()
 
     # creating and sending certificates
-    cert = Cert(template_type, recipient_type, event_name, event_start_date, is_winner, template_path)
+    cert = Cert(cert_template_name,
+                recipient_type,
+                event_name,
+                event_start_date,
+                is_winner,
+                template_path)
     purpose = "{} - {}".format(cert.event_name, cert.certificate_title)
     email_error_list = []
 
