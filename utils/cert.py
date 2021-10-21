@@ -11,7 +11,6 @@ import textwrap
 from log_ref_in_db import save_ref
 
 
-
 class Cert:
     issuing_organization_names = {
         "SB Template": "IEEE SB GEC Palakkad",
