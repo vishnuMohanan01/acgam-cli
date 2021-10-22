@@ -1,16 +1,12 @@
 import os
-import shutil
-import sys
 
 import pandas as pd
 
-from utils.cert import Cert
+from utils.cert.cert import Cert
 from utils.checks.cert_template_check import CertTemplateChecks
 from utils.checks.df_checks import DFChecks
 from utils.checks.other_checks import OtherChecks
 from utils.error_lib import *
-from utils.mail import mail
-from utils.mail import notify
 from utils.make_dirs_and_files import make_gen_certs_dir
 from utils.parse_args import ArgParser
 
@@ -22,7 +18,6 @@ if __name__ == '__main__':
     # env vars
     EXECUTION_MODE = os.environ["EXECUTION_MODE"]
 
-    # TODO: move this to a separate file
     # parsing args
     args = ArgParser().get_args()
 
@@ -35,14 +30,8 @@ if __name__ == '__main__':
     else:
         raise GeneralError(f"Given CSV File {args['csv_path']} doesn't exist.")
 
-    # init empty lists to take in data
-    recipient_names = []
-    recipient_emails = []
-    college_names = []
-    winner_positions = []
-
-    # csv file checks
-    CSVChecks(df=recipients_df, is_winners=is_winners).begin()
+    # dataframe file checks
+    DFChecks(df=recipients_df, is_winners=is_winners).begin()
 
     # cert template checks
     CertTemplateChecks(template_dir=constants.TEMPLATE_DIR).begin()
@@ -53,15 +42,15 @@ if __name__ == '__main__':
     # other checks
     OtherChecks(certs_store_dir=certs_store_dir).begin()
 
-    # # creating and sending certificates
-    # cert = Cert(cert_template_name,
-    #             recipient_type,
-    #             event_name,
-    #             event_start_date,
-    #             is_winner,
-    #             template_path)
-    # purpose = "{} - {}".format(cert.event_name, cert.certificate_title)
-    # email_error_list = []
+    # creating and sending certificates
+    cert = Cert(cert_template_name,
+                recipient_type,
+                event_name,
+                event_start_date,
+                is_winner,
+                template_path)
+    purpose = "{} - {}".format(cert.event_name, cert.certificate_title)
+    email_error_list = []
     #
     # try:
     #     index = 0
