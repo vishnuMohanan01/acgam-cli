@@ -1,3 +1,9 @@
+# avoid tracking cert templates
+*.png
+
+# avoid tracking recipient data
+*.csv
+
 # for pycharm
 .idea
 
