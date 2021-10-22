@@ -3,7 +3,7 @@ import os
 from ..error_lib import *
 
 
-class OtherCheck:
+class OtherChecks:
     """Add checks as private methods and call them in begin() method."""
 
     def __init__(self, certs_store_dir):

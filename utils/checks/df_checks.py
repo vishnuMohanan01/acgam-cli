@@ -1,7 +1,7 @@
 from ..error_lib import *
 
 
-class DFCheck:
+class DFChecks:
     """Add checks as private methods and call them in begin() method."""
 
     def __init__(self, df, is_winners):

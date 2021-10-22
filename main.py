@@ -5,9 +5,9 @@ import sys
 import pandas as pd
 
 from utils.cert import Cert
-from utils.checks.cert_template_check import CertTemplateCheck
-from utils.checks.df_checks import CSVCheck
-from utils.checks.other_checks import OtherCheck
+from utils.checks.cert_template_check import CertTemplateChecks
+from utils.checks.df_checks import DFChecks
+from utils.checks.other_checks import OtherChecks
 from utils.error_lib import *
 from utils.mail import mail
 from utils.mail import notify
@@ -42,16 +42,16 @@ if __name__ == '__main__':
     winner_positions = []
 
     # csv file checks
-    CSVCheck(df=recipients_df, is_winners=is_winners).begin()
+    CSVChecks(df=recipients_df, is_winners=is_winners).begin()
 
     # cert template checks
-    CertTemplateCheck(template_dir=constants.TEMPLATE_DIR).begin()
+    CertTemplateChecks(template_dir=constants.TEMPLATE_DIR).begin()
 
     # creating useful dirs and files
-    certs_store_dir = make_gen_certs_dir(gen_certs_dir=constants.GENERATED_CERTS_DIR, event_name=event_name)
+    certs_store_dir = make_gen_certs_dir(gen_certs_dir=constants.GENERATED_CERTS_DIR, event_name=args["event_name"])
 
     # other checks
-    OtherCheck(certs_store_dir=certs_store_dir).begin()
+    OtherChecks(certs_store_dir=certs_store_dir).begin()
 
     # # creating and sending certificates
     # cert = Cert(cert_template_name,
