@@ -11,6 +11,11 @@ def init_arg_parser():
                             action='store',
                             # required=True,
                             help='To add an event  to DB. Specify the event name as value. Returns event ID.')
+    arg_parser.add_argument('-d',
+                            '--date',
+                            action='store',
+                            # required=True,
+                            help='To specify the event date.')
     arg_parser.add_argument('-f',
                             '--file',
                             action='store',
@@ -24,8 +29,8 @@ def init_arg_parser():
                             help='Specify the event name.')
     # TODO: Replace this feature with --event-id
     # Temp Feature
-    arg_parser.add_argument('-E',
-                            '--event-id',
+    arg_parser.add_argument('-e',
+                            '--event-name',
                             action='store',
                             # required=True,
                             help='Specify the event id.')
@@ -35,23 +40,20 @@ def init_arg_parser():
                             action='store',
                             # required=True,
                             help='Specify the event id.')
-
     arg_parser.add_argument('-O',
                             '--organization',
                             action='store',
                             # required=True,
                             choices=["comsoc", "cs", "ias", "sb", "wie"],
                             help='Specify the name of the organization issuing the certificate.')
+    arg_parser.add_argument('-N',
+                            '--no-mail',
+                            action='store_true',
+                            help='Use this flag if generated certificates need not be mailed to the recipients.')
     arg_parser.add_argument('-T',
                             '--type',
                             action='store',
                             choices=["p", "participants", "w", "winners"],
                             # required=True,
                             help='Specify the type of the certificate being issued.')
-    arg_parser.add_argument('-N',
-                            '--no-mail',
-                            action='store_true',
-                            help='Use this flag if generated certificates need not be mailed to the recipients.')
-
     return arg_parser
-
