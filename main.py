@@ -37,7 +37,7 @@ if __name__ == '__main__':
     CertTemplateChecks(template_dir=constants.TEMPLATE_DIR).begin()
 
     # creating useful dirs and files
-    certs_store_dir = make_gen_certs_dir(gen_certs_dir=constants.GENERATED_CERTS_DIR, event_name=args["event_name"])
+    certs_store_dir = make_gen_certs_dir(gen_certs_dir=constants.CERT_STORE_DIR, event_name=args["event_name"])
 
     # other checks
     OtherChecks(certs_store_dir=certs_store_dir).begin()
