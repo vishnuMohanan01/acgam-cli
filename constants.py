@@ -3,7 +3,12 @@ FONT_DIR = "fileSystem/fonts"
 CERT_STORE_DIR = "fileSystem/generatedCerts"
 TEMPLATE_DIR = "fileSystem/certTemplates"
 
-# These comes on certs and mails
+# Other vars
+RECIPIENT_TYPES = ["c", "coordinators",
+                   "p", "participants",
+                   "v", "volunteers",
+                   "w", "winners"]
+
 ORG_FULL_NAMES = {
     "comsoc": "IEEE ComSoc SBC GEC Palakkad",
     "cs": "IEEE CS SBC GEC Palakkad",
