@@ -30,6 +30,7 @@ class ArgParser:
         arg_parser.add_argument('-O',
                                 '--organization',
                                 action='store',
+                                choices=constants.ORG_NAMES,
                                 # required=True,
                                 help='Specify the name of the organization issuing the certificate.')
         arg_parser.add_argument('-N',
