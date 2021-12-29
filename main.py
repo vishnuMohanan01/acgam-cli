@@ -19,10 +19,11 @@ if __name__ == '__main__':
     EXECUTION_MODE = os.environ["EXECUTION_MODE"]
 
     # parsing args
+    # TODO: add cert-temp-path arg
     args = ArgParser().get_args()
 
     # derived vars
-    is_winners = args["cert_type"] in ["winners", "w"]
+    is_winners = args["recipient_type"] in ["winners", "w"]
 
     recipients_df = None
     if os.path.isfile(os.path.join(args["csv_path"])):
@@ -43,14 +44,15 @@ if __name__ == '__main__':
     OtherChecks(certs_store_dir=certs_store_dir).begin()
 
     # creating and sending certificates
-    cert = Cert(cert_template_name,
-                recipient_type,
-                event_name,
-                event_start_date,
-                is_winner,
-                template_path)
+    cert = Cert(args['cert_template_path'],
+                args['recipient_type'],
+                args['event_name'],
+                args['event_start_date'],
+                is_winners
+                )
     purpose = "{} - {}".format(cert.event_name, cert.certificate_title)
     email_error_list = []
+
     #
     # try:
     #     index = 0
