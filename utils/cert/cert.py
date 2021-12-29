@@ -8,46 +8,32 @@ from PIL import Image, ImageDraw, ImageFont
 import qrcode
 import textwrap
 
-from log_ref_in_db import save_ref
+from ... import constants
+from ..db.log_ref_in_db import save_ref
+
+EXECUTION_MODE = os.environ["EXECUTION_MODE"]
 
 
 class Cert:
-    issuing_organization_names = {
-        "SB Template": "IEEE SB GEC Palakkad",
-        "CS Template": "IEEE CS SBC GEC Palakkad",
-        "IAS Template": "IEEE IAS SBC GEC Palakkad",
-        "WIE Template": "IEEE WIE AG GEC Palakkad",
-        "Excelsior21SB Template": "IEEE SB GEC Palakkad",
-        "Excelsior21FROMSB Template": "IEEE SB GEC Palakkad",
-        "Excelsior21CS Template": "IEEE CS SBC GEC Palakkad",
-        "Excelsior21FROMCS Template": "IEEE CS SBC GEC Palakkad",
-        "Excelsior21IAS Template": "IEEE IAS SBC GEC Palakkad",
-        "Excelsior21FROMIAS Template": "IEEE IAS SBC GEC Palakkad",
-    }
-    certificate_titles = {
-        "Participants": "Certificate Of Participation",
-        "Winners": "Certificate of Achievement",
-        "Volunteers": "Volunteer Certificate",
-        "Coordinators": "Coordinator Certificate"
-    }
-
-    def __init__(self, template_type, recipient_type, event_name, event_start_date, is_winner, template_path):
-        self.execution_mode = os.environ.get('EXECUTION_MODE')
-
-        self.template_type = template_type
+    def __init__(self, event_date, event_name, org_name, recipient_type, switches):
+        # vars from init args
+        self.event_date = event_date
         self.recipient_type = recipient_type
-        self.issuing_organization = self.issuing_organization_names[self.template_type]
-        self.certificate_title = self.certificate_titles[self.recipient_type]
+        self.org_name = org_name
         self.event_name = event_name
-        self.event_start_date = event_start_date
+        self.is_winner = switches["is_winner"]
+        self.is_test = switches["is_test"]
+
+        # derived vars
+        self.cert_title = self.__get_cert_title()
+
+        # cert params init to None
         self.college_name = None
         self.recipient_name = None
-        self.cert_path = None
-        self.is_winner = is_winner
 
-        self.template_path = template_path
+        self.template_path = constants.TEMPLATE_DIR
 
-        json_file = open('./templateProperties.json' if self.execution_mode == 'test' else 'src/scripts/templateProperties.json', 'r')
+        json_file = open('./templateProperties.json' if EXECUTION_MODE == 'development' else 'src/scripts/templateProperties.json', 'r')
         template_properties = json.load(json_file)[self.template_type][self.recipient_type]
 
         '''Configurations'''
@@ -70,13 +56,16 @@ class Cert:
         self.text_color_position = '#707071'
         # Face
         self.font_for_name = ImageFont.truetype("./fonts/Philosopher-Bold.ttf" if (self.execution_mode == 'test') else "src/scripts/fonts/Philosopher-Bold.ttf", 85)
-#         self.font_for_event = ImageFont.truetype("./fonts/Poppins-Regular-400.ttf" if (self.execution_mode == 'test') else "src/scripts/fonts/Poppins-SemiBold-600.ttf", 70)
+       #  self.font_for_event = ImageFont.truetype("./fonts/Poppins-Regular-400.ttf" if (self.execution_mode == 'test') else "src/scripts/fonts/Poppins-SemiBold-600.ttf", 70)
         # temperory:
         self.font_for_event = ImageFont.truetype("./fonts/Poppins-Regular-400.ttf" if (self.execution_mode == 'test') else "src/scripts/fonts/Poppins-SemiBold-600.ttf", 58)
         self.font_for_college = ImageFont.truetype("./fonts/Philosopher-Regular.ttf" if (self.execution_mode == 'test') else "src/scripts/fonts/Philosopher-Regular.ttf", 50)
         self.font_for_issuing_organization = ImageFont.truetype("./fonts/Poppins-Regular-400.ttf" if (self.execution_mode == 'test') else "src/scripts/fonts/Poppins-SemiBold-600.ttf", 70)
         self.font_for_date = ImageFont.truetype("./fonts/Philosopher-Regular.ttf" if (self.execution_mode == 'test') else "src/scripts/fonts/Poppins-SemiBold-600.ttf", 70)
         self.font_for_position = ImageFont.truetype("./fonts/Philosopher-Regular.ttf" if (self.execution_mode == 'test') else "src/scripts/fonts/Poppins-SemiBold-600.ttf", 70)
+
+    def __get_cert_title(self):
+        return constants.CERT_TITLES[self.recipient_type[0]]
 
     def create(self, recipient_name, college_name, winner_position, dir_name, event_id, recipient_email):
         print("creating certificate for {}".format(recipient_name))
